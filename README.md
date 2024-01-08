@@ -1,3 +1,7 @@
+## WEBSITE FILES ACCESSIBLE ON GITHUB
+
+Find all the files at https://github.com/id-sc/duck/tree/main
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
