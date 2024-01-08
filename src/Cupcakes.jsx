@@ -21,14 +21,14 @@ const cupcakesData = [
     id: 3,
     title: 'Triple Chocolate',
     image: 'https://www.tamingtwins.com/wp-content/uploads/2023/12/chocolate-cupcakes-recipe-9-e1702304324685.jpg', // Replace with actual image URL
-    description: 'Delicious chocolate cupcake with creamy frosting and sprinkles.',
+    description: 'Delicious chocolate cupcake with creamy chocolate frosting and sprinkles.',
     bestseller: '5',
   },
   {
     id: 4,
     title: 'Cookie Dough',
     image: 'https://thefoodcharlatan.com/wp-content/uploads/2023/03/Cookie-Dough-Cupcakes-19.jpg', // Replace with actual image URL
-    description: 'Moist vanilla, cookie dough frosting, and mini chocolate chips.',
+    description: 'Moist vanilla cupcake with cookie dough frosting and mini chocolate chips.',
     bestseller: '4',
   },
   {
@@ -91,7 +91,7 @@ const Cupcakes = () => {
 
   return (
     <Container>
-      <Box paddingTop={3} paddingBottom={1}>
+      <Box paddingTop={3} paddingBottom={0}>
       <Typography variant="h2" gutterBottom>
         Cupcakes
       </Typography>
@@ -99,7 +99,7 @@ const Cupcakes = () => {
       <Box paddingBottom={3}>
       <Typography variant="body2" gutterBottom>
       Embark on a delectable journey with our diverse range of homemade cupcakes! Their flavors and themes change throughout the seasons, 
-      so make sure to visit us frequently for a taste of our upcoming cupcakes! Utilize the filter and sorting options to discover your perfect treat.
+      so make sure to visit us frequently for a taste of our upcoming cupcakes! Utilize the filter and sorting options to discover the perfect treat for you.
       </Typography>
       </Box>
       <div>
@@ -183,6 +183,8 @@ const Cupcakes = () => {
                 alt={cupcake.title + ' - ' + cupcake.description}
                 height="400"
                 image={cupcake.image}
+                style={{ objectFit: 'cover' }}
+                aria-label={cupcake.title + ' - ' + cupcake.description}
               />
               <CardContent>
                 <Typography variant="h4" component="div" gutterBottom>

@@ -95,13 +95,13 @@ const CupcakeShops = () => {
   return (
     <Container>
       <Typography paddingTop={3} variant="h2" gutterBottom>
-        Cupcake Shops
+        Our Shops
       </Typography>
       <Typography paddingBottom={3} variant="body2" gutterBottom>
-      Our charming shops are scattered across three beautiful countries—France, Spain, and the United States. 
-      Each location has a unique atmosphere, offering a selection of artisanal cupcakes crafted with love and passion. 
-      Join us on a sweet journey as we bring joy to cupcake enthusiasts in diverse corners of the world. 
-      Discover the magic at our delightful cupcake shops, where every bite is a celebration!
+      We have lovely shops in three beautiful countries—France, Spain, and the United States. 
+      Each place has its own special feel and offers yummy cupcakes made with love. 
+      Come along on a sweet journey with us as we spread happiness to cupcake fans all around the world. 
+      Experience the magic at our delightful cupcake shops, where every bite is a celebration!
       </Typography>
       <FormControl style={{ minWidth: 120, minHeight: 100 }}>
         <InputLabel id="filter-label"></InputLabel>
@@ -142,36 +142,33 @@ const CupcakeShops = () => {
         </Select>
       </FormControl>
       <Box paddingBottom={3}>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>City</TableCell>
-              <TableCell>Country</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Opening Hours</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredCupcakeShops.map((shop) => (
-              <TableRow key={shop.id}>
-                <TableCell>{shop.id}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.name}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.address}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.city}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.country}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.phone}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.email}</TableCell>
-                <TableCell sx={{fontSize: '22px'}}>{shop.openingHours}</TableCell>
+      <TableContainer component={Paper} sx={{ overflowX: 'auto' }}>
+          <Table sx={{ minWidth: 'auto' }}>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Address</TableCell>
+                <TableCell>City</TableCell>
+                <TableCell>Country</TableCell>
+                <TableCell>Phone</TableCell>
+                <TableCell>Email</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {filteredCupcakeShops.map((shop) => (
+                <TableRow style={{ fontSize: 'large' }} key={shop.id}>
+                <TableCell style={{ fontSize: 'large' }}>{shop.id}</TableCell>
+                <TableCell style={{ fontSize: 'large' }}>{shop.address}</TableCell>
+                <TableCell style={{ fontSize: 'large' }}>{shop.city}</TableCell>
+                <TableCell style={{ fontSize: 'large' }}>{shop.country}</TableCell>
+                <TableCell style={{ fontSize: 'large' }}>{shop.phone}</TableCell>
+                <TableCell style={{ fontSize: 'large' }}>{shop.email}</TableCell>
+              </TableRow>
+
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Box>
     </Container>
   );

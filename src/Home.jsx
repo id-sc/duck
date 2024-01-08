@@ -6,6 +6,8 @@ import {
   Grid,
   Card,
   CardContent,
+  CardMedia,
+  Link,
   Paper,
   Box,
   ImageList,
@@ -26,15 +28,16 @@ function srcset(image, size, rows = 1, cols = 1) {
 const QuiltedImageList = () => {
   return (
     <ImageList
-      sx={{ width: '100%', height: '100%' }}
+      sx={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}
       cols={4}
     >
       {itemData.map((item) => (
-        <ImageListItem key={item.img}>
+        <ImageListItem key={item.img} sx={{ flex: '1 1 calc(25% - 16px)' }}>
           <img
+            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
             src={`${item.img}?w=248&fit=crop&auto=format`}
-            aria-label={item.description}
+            aria-label={item.title + ' - ' + item.description}
             alt={item.description}
             title={item.title}
             loading="lazy"
@@ -42,7 +45,7 @@ const QuiltedImageList = () => {
 
           <ImageListItemBar
             title={<span style={{ fontSize: '20px' }}>{item.title}</span>}
-            subtitle={<span style={{ fontSize: '16px'}}>by: {item.author}</span>}
+            subtitle={<span style={{ fontSize: '16px' }}>by: {item.author}</span>}
             position="below"
           />
         </ImageListItem>
@@ -50,6 +53,7 @@ const QuiltedImageList = () => {
     </ImageList>
   );
 };
+
 
 const itemData = [
   {
@@ -130,83 +134,84 @@ const itemData = [
 const HomePage = () => {
   const mainFeaturedPost = {
     title: 'Welcome to Cupcake Wonderland!',
-    description: 'Dive into happiness with our homemade cupcakes. Your taste buds are in for a delightful journey.',
+    description: 'Dive into joy with our homemade cupcakes. Your taste buds are about to embark on a delightful journey.',
     linkText: 'Explore Cupcakes',
-    image: 'https://blog.feeriecake.fr/files/2016/06/cupcakes2-1.png', // Replace with the actual URL or path to your image
-    imageText: 'Red berries cupcakes', // this is alt
+    image: 'https://blog.feeriecake.fr/files/2016/06/cupcakes2-1.png',
+    imageText: 'Red berries cupcakes',
   };
 
   return (
     <Container>
-      {/* Main */}
-      <Box paddingTop={2}>
-        <Paper
+    {/* Main */}
+    <Box paddingTop={2}>
+      <Paper 
+        sx={{
+          position: 'relative',
+          backgroundColor: 'grey.800',
+          color: '#fff',
+          mb: '4',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundImage: `url(${mainFeaturedPost.image})`,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {<img style={{ display: 'none' }} src={mainFeaturedPost.image} alt={mainFeaturedPost.imageText} aria-label={mainFeaturedPost.imageText + ' - ' + mainFeaturedPost.description} />}
+        <Box
           sx={{
-            position: 'relative',
-            backgroundColor: 'grey.800',
-            color: '#fff',
-            mb: '4',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundImage: `url(${mainFeaturedPost.image})`,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            right: 0,
+            left: 0,
+            backgroundColor: 'rgba(0,0,0,.5)',
           }}
-        >
-          {/* Increase the priority of the hero background image */}
-          {<img style={{ display: 'none' }} src={mainFeaturedPost.image} alt={mainFeaturedPost.imageText} />}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              right: 0,
-              left: 0,
-              backgroundColor: 'rgba(0,0,0,.5)', // TODO add a gray layer on the home image for more readability //
-            }}
-          />
-          <Grid container>
-            <Grid item md={11}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  p: { xs: 3, md: 6 },
-                  pr: { md: 0 },
-                  overflow: 'hidden', // Prevent text overflow
-                  maxWidth: '100%', // Limit the width
-                }}
-              >
-                <Typography variant="h1" color="inherit" gutterBottom>
-                  {mainFeaturedPost.title}
-                </Typography>
-                <Typography variant="body1" color="inherit" paragraph>
-                  {mainFeaturedPost.description}
-                </Typography>
-                <Box textAlign='center'>
-                <Button variant="contained" size="large" aria-label="View Cupcakes" href="/cupcakes">
+        />
+        <Grid container>
+          <Grid item xs={12} md={11}>
+            <Box
+              sx={{
+                position: 'relative',
+                p: { xs: 3, md: 6 },
+                pr: { md: 0 },
+                overflow: 'hidden',
+                maxWidth: '100%',
+                textAlign: 'center',
+              }}
+            >
+              <Typography variant="h1" color="inherit" gutterBottom sx={{ wordWrap: 'break-word' }}>  {/*or overflowWrap: 'break-word'*/}
+                {mainFeaturedPost.title}
+              </Typography>
+              <Typography variant="body1" color="inherit" paragraph>
+                {mainFeaturedPost.description}
+              </Typography>
+              <Box>
+                <Button aria-label="Go to Cupcakes page" variant="contained" size="large" aria-label="View Cupcakes" href="/cupcakes">
                   Explore Cupcakes
-                </Button> {/* TODO Larger text in the button */}
-                </Box>
+                </Button>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Paper>
-      </Box>
+        </Grid>
+      </Paper>
+    </Box>
 
       {/* Additional content */}
       <Typography variant="h2" paddingTop={4} paragraph>
       Discover the Latest Flavors
       </Typography>
       <Typography variant="body2" paragraph>
-      Unveil a confectionery haven where we unveil our newest cupcake creations, crafted with love and bursting with flavor. 
-      From seasonal sensations to limited-time treats, every cupcake has a story waiting to be tasted.
-      Be the first to know about our exciting offerings, promotions, and community happenings. Because who doesn't love a surprise that involves cupcakes?
+      Explore a sweet world of delicious treats where we reveal our latest cupcake creations made with love and packed with amazing flavors. 
+      From special seasonal flavors to treats available for a limited time, each cupcake has its own unique story waiting for you to taste. 
+      Be the first to discover our exciting new cupcakes, special promotions, and community events. 
+      Because who does not love a surprise that involves cupcakes?
       </Typography>
 
-      <Grid container paddingBottom={5} spacing={2} sx={{ mt: 3 }}>
+      <Grid container spacing={2} sx={{ mt: 3 }}>
         {/* Featured Cupcakes */}
         <Grid item xs={12} md={4}>
           <Card>
@@ -218,7 +223,7 @@ const HomePage = () => {
               Introducing Winter Bites, a cinnamon apple cupcake adorned with rich caramel frosting and coulis and crowned with a gingerbread cookie - a festive treat capturing winter's essence.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
-                <Button variant="outlined" size="medium" color="button" href="/cupcakes">
+                <Button aria-label="Go to Cupcakes page" variant="outlined" size="medium" color="button" href="/cupcakes">
                   Explore Cupcakes
                 </Button>
               </Box>
@@ -235,7 +240,7 @@ const HomePage = () => {
                 Discover the art of baking and decorating cupcakes at Cupcake Wonderland. Perfect for all levels of baking enthusiasts! Find more information at your local shop.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
-                <Button aria-label="View Shops" variant="outlined" size="medium" color="button" href="/shops">
+                <Button aria-label="Go to Shops page" variant="outlined" size="medium" color="button" href="/shops">
                   Nearby Shops
                 </Button>
               </Box>
@@ -249,10 +254,10 @@ const HomePage = () => {
                 Special Winter Offer
               </Typography>
               <Typography variant="body3">
-              Didn't love your Christmas gifts? No worries! Our winter offer is here to sweeten the deal. Treat yourself to joy and indulgence – buy two cupcakes, get one free. Limited time offer.
+              Did not love your Christmas gifts? No worries! Our winter offer is here to sweeten the deal. Treat yourself to joy – buy two cupcakes, get one free. Limited time offer.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
-                <Button aria-label="View Cupcakes" variant="outlined" size="medium" color="button" href="/cupcakes">
+                <Button aria-label="Go to Cupcakes page" variant="outlined" size="medium" color="button" href="/cupcakes">
                   Explore Cupcakes
                 </Button>
               </Box>
@@ -260,6 +265,44 @@ const HomePage = () => {
           </Card>
         </Grid>
       </Grid>
+
+      <Grid container paddingBottom={5} spacing={2} sx={{ mt: 3 }}>
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardContent sx={{ bgcolor: '#F5F5F5'}}> {/* TODO change bg color */}
+              <Typography variant="h4" gutterBottom>
+              Meet Our Newest Baker: Milo Payard
+              </Typography>
+              <Typography variant="body3">
+              Introducing the youngest member of our Cupcake Wonderland family, Miles Payard! Miles has opened our newest shop in the heart of Madrid, Spain.
+              </Typography>
+              <Box paddingTop={1} textAlign='center'>
+                <Button aria-label="Go to About page" variant="outlined" size="medium" color="button" href="/about">
+                  Meet Miles
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardContent sx={{ bgcolor: '#F5F5F5'}}> {/* TODO change bg color */} {/* TODO Add a background color for each card */}
+              <Typography variant="h4" gutterBottom>
+                Create Our Next Cupcake?
+              </Typography>
+              <Typography variant="body3">
+                You want to be the mind behind the next cupcake we sell in all of our shops? Send us the description of you idea through our contact form!
+              </Typography>
+              <Box paddingTop={1} textAlign='center'>
+                <Button aria-label="Go to Contact page" variant="outlined" size="medium" color="button" href="/contact">
+                  Contact us
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
       <Box paddingBottom={5} textAlign='center' >
       <Typography variant="h2" paragraph>
         Sweet Gallery
