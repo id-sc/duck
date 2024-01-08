@@ -64,8 +64,8 @@ const cupcakesData = [
   {
     id: 9,
     title: 'Winter Breeze',
-    image: 'https://cdn.pixabay.com/photo/2018/12/09/20/12/christmas-3865695_640.jpg', // TODO resize the image
-    description: 'Gluten free white chocolate blueberry cupcake topped with juicy fruits.',
+    image: 'https://w4s8p5t8.rocketcdn.me/wp-content/uploads/2023/11/vegan-gingerbread-cupcakes.jpg', // TODO resize the image
+    description: 'Gluten free apple cinnamon cupcakes with caramel frosting and gingerbread cookie.',
     bestseller: '2',
   },
   // TODO Add more cupcake data as needed
@@ -99,7 +99,7 @@ const Cupcakes = () => {
       <Box paddingBottom={3}>
       <Typography variant="body2" gutterBottom>
       Embark on a delectable journey with our diverse range of homemade cupcakes! Their flavors and themes change throughout the seasons, 
-      so make sure to visit us frequently for a taste of our upcoming cupcakes!
+      so make sure to visit us frequently for a taste of our upcoming cupcakes! Utilize the filter and sorting options to discover your perfect treat.
       </Typography>
       </Box>
       <div>
@@ -179,7 +179,8 @@ const Cupcakes = () => {
             <Card>
               <CardMedia
                 component="img"
-                alt={cupcake.title}
+                title={cupcake.title}
+                alt={cupcake.title + ' - ' + cupcake.description}
                 height="400"
                 image={cupcake.image}
               />

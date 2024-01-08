@@ -1,6 +1,6 @@
 // Header.js
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Paper, styled, Button, Hidden, Drawer, Stack } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, Link, IconButton, Paper, styled, Button, Hidden, Drawer, Stack } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -14,12 +14,21 @@ const Header = () => {
   return (
     <AppBar position="sticky">
       <Toolbar>
-         {/* Add your logo here */}
-         <img src="/logo_cupcake_round.png" alt="Cupcake Logo" style={{ width: '70px', height: '70px', marginRight: '10px' }} /> 
-        {/* Always show the title */}
-        <Typography variant="h3" component={RouterLink} to="/home" textAlign='left' fontFamily={'Pacifico'} color="inherit" sx={{ textDecoration: 'none', flexGrow: 1 }}> {/* TODO Check font */} {/* TODO Make it clickable */} {/* TODO Add logo */}
+      <Link href="/home" sx={{ '&:hover img': { filter: 'brightness(90%)', transform: 'scale(1.1)' } }}>
+      {/* Add your logo here */}
+      <img
+        aria-label="Go to home page"
+        src="/logo_cupcake_round.png"
+        role="link"
+        alt="Cupcake Wonderland's Logo"
+        style={{ width: '70px', height: '70px', marginRight: '10px', transition: 'filter 0.0s' }}
+      />
+    </Link>
+        <Box >
+        <Typography aria-label="Go to home page" variant="h3" component={RouterLink} to="/home" textAlign='left' fontFamily={'Pacifico'} color="inherit" sx={{ textDecoration: 'none', flexGrow: 1, '&:hover': { textDecoration: 'underline', backgroundColor: 'hoverShade', color: 'primary.main' } }}> {/* TODO Check font */} {/* TODO Make it clickable */} {/* TODO Add logo */}
           Cupcake Wonderland
         </Typography>
+        </Box>
 
         {/* Display IconButton (MenuIcon) only on small screens */}
         <Hidden mdUp>
@@ -27,8 +36,13 @@ const Header = () => {
             size="large"
             edge="start"
             color="inherit"
-            aria-label="menu"
+            type="button"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Open navigation menu"
             onClick={toggleMenu}
+            sx={{ marginLeft: 'auto', '&:hover': { backgroundColor: 'hoverShade', color: 'primary.main' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -36,41 +50,42 @@ const Header = () => {
 
         {/* Display other buttons */} {/* TODO Center text in menu */} {/* TODO Make design in menu */} {/* TODO Add feedback */}
         <Hidden smDown>
-        <Typography variant="h3" component={RouterLink} to="/home" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none' }}>
+        <Box sx={{ marginLeft: 'auto' }}>
+        <Typography aria-label="Go to home page" variant="h3" component={RouterLink} to="/home" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none', '&:hover': { textDecoration: 'underline', backgroundColor: 'hoverShade', color: 'primary.main' } }}>
           Home
         </Typography>
-        <Typography variant="h3" component={RouterLink} to="/cupcakes" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none' }}>
+        <Typography aria-label="Go to cupcakes page" variant="h3" component={RouterLink} to="/cupcakes" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none', '&:hover': { textDecoration: 'underline', backgroundColor: 'hoverShade', color: 'primary.main' } }}>
           Cupcakes
         </Typography>
-        <Typography variant="h3" component={RouterLink} to="/about" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none' }}>
+        <Typography aria-label="Go to about us page" variant="h3" component={RouterLink} to="/about" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none', '&:hover': {textDecoration: 'underline',  backgroundColor: 'hoverShade', color: 'primary.main' } }}>
           About us
         </Typography>
-        <Typography variant="h3" component={RouterLink} to="/shops" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none' }}>
+        <Typography aria-label="Go to our shops page" variant="h3" component={RouterLink} to="/shops" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none', '&:hover': { textDecoration: 'underline', backgroundColor: 'hoverShade', color: 'primary.main' } }}>
           Our Shops
         </Typography>
-        <Typography variant="h3" component={RouterLink} to="/contact" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none' }}>
+        <Typography aria-label="Go contact page" variant="h3" component={RouterLink} to="/contact" color="inherit" sx={{ marginLeft: 2, marginRight: 2, textDecoration: 'none', '&:hover': { textDecoration: 'underline', backgroundColor: 'hoverShade', color: 'primary.main' } }}>
           Contact
         </Typography>
-          {/* Add more buttons as needed */}
+        </Box>
         </Hidden>
 
         {/* Drawer for menu on small screens */} {/* TODO Center text in menu pk un a margin right et pas les autres*/}
         <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
-        <Paper sx={{ width: '100%', maxWidth: '100vw', height:'100%', backgroundColor: '#020711', overflow: 'hidden' }}>
-          <Stack>
-        <Typography paddingTop={6} paddingBottom={3} paddingLeft={3} paddingRight={3} variant="h3" component={RouterLink} to="/home" sx={{ textDecoration: 'none' }}>
+        <Paper sx={{ width: '100%', maxWidth: '100vw', height:'100%', backgroundColor: 'primary.main', overflow: 'hidden' }}>
+          <Stack paddingTop={3}>
+        <Typography aria-label="Go to home page" padding={3} variant="h3" component={RouterLink} to="/home" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'none', backgroundColor: 'hoverShade', color: 'primary.main'} }}>
           Home
         </Typography>
-        <Typography padding={3} variant="h3" component={RouterLink} to="/cupcakes" sx={{ textDecoration: 'none' }}>
+        <Typography aria-label="Go to cupcakes page" padding={3} variant="h3" component={RouterLink} to="/cupcakes" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'none', backgroundColor: 'hoverShade', color: 'primary.main'} }}>
           Cupcakes
         </Typography>
-        <Typography padding={3} variant="h3" component={RouterLink} to="/about" sx={{ textDecoration: 'none' }}>
+        <Typography aria-label="Go to about us page" padding={3} variant="h3" component={RouterLink} to="/about" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'none', backgroundColor: 'hoverShade', color: 'primary.main'} }}>
           About us
         </Typography>
-        <Typography padding={3} variant="h3" component={RouterLink} to="/shops" sx={{ textDecoration: 'none' }}>
+        <Typography aria-label="Go to our shops page" padding={3} variant="h3" component={RouterLink} to="/shops" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'none', backgroundColor: 'hoverShade', color: 'primary.main'} }}>
           Our shops
         </Typography>
-        <Typography padding={3} variant="h3" component={RouterLink} to="/contact" sx={{ textDecoration: 'none' }}>
+        <Typography aria-label="Go contact page" padding={3} variant="h3" component={RouterLink} to="/contact" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'none', backgroundColor: 'hoverShade', color: 'primary.main'} }}>
           Contact
         </Typography>
           </Stack>

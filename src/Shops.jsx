@@ -97,8 +97,11 @@ const CupcakeShops = () => {
       <Typography paddingTop={3} variant="h2" gutterBottom>
         Cupcake Shops
       </Typography>
-      <Typography paddingTop={3} variant="body2" gutterBottom>
-        Small description of out Cupcake Shops
+      <Typography paddingBottom={3} variant="body2" gutterBottom>
+      Our charming shops are scattered across three beautiful countries—France, Spain, and the United States. 
+      Each location has a unique atmosphere, offering a selection of artisanal cupcakes crafted with love and passion. 
+      Join us on a sweet journey as we bring joy to cupcake enthusiasts in diverse corners of the world. 
+      Discover the magic at our delightful cupcake shops, where every bite is a celebration!
       </Typography>
       <FormControl style={{ minWidth: 120, minHeight: 100 }}>
         <InputLabel id="filter-label"></InputLabel>
@@ -157,13 +160,13 @@ const CupcakeShops = () => {
             {filteredCupcakeShops.map((shop) => (
               <TableRow key={shop.id}>
                 <TableCell>{shop.id}</TableCell>
-                <TableCell>{shop.name}</TableCell>
-                <TableCell>{shop.address}</TableCell>
-                <TableCell>{shop.city}</TableCell>
-                <TableCell>{shop.country}</TableCell>
-                <TableCell>{shop.phone}</TableCell>
-                <TableCell>{shop.email}</TableCell>
-                <TableCell>{shop.openingHours}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.name}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.address}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.city}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.country}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.phone}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.email}</TableCell>
+                <TableCell sx={{fontSize: '22px'}}>{shop.openingHours}</TableCell>
               </TableRow>
             ))}
           </TableBody>

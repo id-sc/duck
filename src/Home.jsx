@@ -31,16 +31,18 @@ const QuiltedImageList = () => {
     >
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
-        <img
-          srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-          src={`${item.img}?w=248&fit=crop&auto=format`}
-          title={item.description}
-          alt={item.title}
-          loading="lazy"
-        />
-          <ImageListItemBar
+          <img
+            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+            src={`${item.img}?w=248&fit=crop&auto=format`}
+            aria-label={item.description}
+            alt={item.description}
             title={item.title}
-            subtitle={<span>by: {item.author}</span>}
+            loading="lazy"
+          />
+
+          <ImageListItemBar
+            title={<span style={{ fontSize: '20px' }}>{item.title}</span>}
+            subtitle={<span style={{ fontSize: '16px'}}>by: {item.author}</span>}
             position="below"
           />
         </ImageListItem>
@@ -70,7 +72,7 @@ const itemData = [
   },
   {
     img: 'https://images.unsplash.com/photo-1582760999860-bc6c933093da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fGN1cGNha2V8ZW58MHwwfDB8fHww',
-    title: 'Chocolate explosion',
+    title: 'Chocolate Explosion',
     author: '@asteroid',
     description: 'Three chocolate cupcakes aligned on chocolate powder',
   },
@@ -131,8 +133,7 @@ const HomePage = () => {
     description: 'Dive into happiness with our homemade cupcakes. Your taste buds are in for a delightful journey.',
     linkText: 'Explore Cupcakes',
     image: 'https://blog.feeriecake.fr/files/2016/06/cupcakes2-1.png', // Replace with the actual URL or path to your image
-    imageText: 'Main Image',
-    alt: 'Red berries cupcakes',
+    imageText: 'Red berries cupcakes', // this is alt
   };
 
   return (
@@ -187,7 +188,7 @@ const HomePage = () => {
                 <Box textAlign='center'>
                 <Button variant="contained" size="large" aria-label="View Cupcakes" href="/cupcakes">
                   Explore Cupcakes
-                </Button> {/* TODO Center this button */}
+                </Button> {/* TODO Larger text in the button */}
                 </Box>
               </Box>
             </Grid>
@@ -196,7 +197,7 @@ const HomePage = () => {
       </Box>
 
       {/* Additional content */}
-      <Typography variant="h2" paddingTop={5} paragraph>
+      <Typography variant="h2" paddingTop={4} paragraph>
       Discover the Latest Flavors
       </Typography>
       <Typography variant="body2" paragraph>
@@ -211,13 +212,13 @@ const HomePage = () => {
           <Card>
             <CardContent sx={{ bgcolor: '#F5F5F5'}}> {/* TODO change bg color */}
               <Typography variant="h4" gutterBottom>
-                New Cupcake: Winter Breeze
+                New Cupcake: Winter Bites
               </Typography>
               <Typography variant="body3">
-              Winter Breeze Cupcakes feature a cinnamon-spiced orange cake — a delightful, festive treat capturing winter's essence.
+              Introducing Winter Bites, a cinnamon apple cupcake adorned with rich caramel frosting and coulis and crowned with a gingerbread cookie - a festive treat capturing winter's essence.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
-                <Button aria-label="View Cupcakes" variant="outlined" size="medium" color="button" href="/cupcakes">
+                <Button variant="outlined" size="medium" color="button" href="/cupcakes">
                   Explore Cupcakes
                 </Button>
               </Box>
@@ -231,7 +232,7 @@ const HomePage = () => {
                 Cupcake Crafting Workshops
               </Typography>
               <Typography variant="body3">
-                Discover the art of baking and decorating cupcakes at Cupcake Wonderland. Perfect for all levels of baking enthusiasts!
+                Discover the art of baking and decorating cupcakes at Cupcake Wonderland. Perfect for all levels of baking enthusiasts! Find more information at your local shop.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
                 <Button aria-label="View Shops" variant="outlined" size="medium" color="button" href="/shops">
@@ -248,7 +249,7 @@ const HomePage = () => {
                 Special Winter Offer
               </Typography>
               <Typography variant="body3">
-                Didn't love your Christmas gifts? No worries! Our winter offer is here to sweeten the deal. Buy two cupcakes, get one free. Limited time offer.
+              Didn't love your Christmas gifts? No worries! Our winter offer is here to sweeten the deal. Treat yourself to joy and indulgence – buy two cupcakes, get one free. Limited time offer.
               </Typography>
               <Box paddingTop={1} textAlign='center'>
                 <Button aria-label="View Cupcakes" variant="outlined" size="medium" color="button" href="/cupcakes">

@@ -17,8 +17,15 @@ const AboutUsPage = () => {
           About Us
         </Typography>
       </Box>
-        <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Box paddingLeft={15} paddingRight={5} paddingBottom={5}>
+        <Box style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '2%',
+          //flexDirection: ('sm') ? 'column' : 'row',
+        }}
+      >
+        <Box flex="1" paddingX="5%" paddingBottom="2%" textAlign="center"> {/*textAlign={('sm') ? 'center' : 'left'}>*/}
           <Typography variant="body2" paragraph>
             Welcome to Cupcake Wonderland! We take pride in creating delicious and
             beautifully crafted cupcakes that bring joy to our customers. Our passion for baking
@@ -28,24 +35,24 @@ const AboutUsPage = () => {
             Keep reading to uncover the delightful journey that shaped our story!
           </Typography>
         </Box>
-        <Box paddingLeft={5} paddingRight={15} paddingBottom={3}>
+        <Box flex="1" paddingX="5%" paddingBottom="2%">
         <img
           src="https://media.istockphoto.com/id/1270395931/fr/photo/une-serveuse-retenant-et-servant-un-cupcake-de-velours-rouge.jpg?s=612x612&w=0&k=20&c=GEBW4T7Hf7HOq8CFFp453Jm7MmP9PePFAtGQedfMhZQ="
           alt="A delicious cupcake handed towards you on a plate"
-          style={{ height: 250, marginRight: 20 }} /* TODO Make this image resizable */
+          style={{ width: '100%', height: 'auto' }} /* TODO Make this image resizable */
         />
       </Box>
       </Box>
       <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Box paddingLeft={15} paddingRight={5} paddingBottom={3}>
+        <Box flex="1" paddingX="5%" paddingBottom="2%">
           <img
           src="https://media-cdn.tripadvisor.com/media/photo-s/0e/c5/5f/7c/cupcake-shop-interior.jpg" 
           alt="The inside of our first cupcake shop in Paris"
           title="l"
-          style={{ height: 250, marginRight: 20 }}
+          style={{ width: '100%', height: 'auto' }}
         />
         </Box>        
-        <Box paddingLeft={5} paddingRight={15} paddingBottom={5}>
+        <Box flex="1" paddingX="5%" paddingBottom="2%">
         <Typography variant="body2" paragraph>
         Our story began in 1973 when Amaury's enchanting creations met Yasmine's experimental wonders during a local baking competition. 
         The spark ignited, and Cupcake Wonderland was born: a bakery where each cupcake is a delectable masterpiece, 
@@ -56,7 +63,7 @@ const AboutUsPage = () => {
       </Box>
       </Box>
       <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Box paddingLeft={15} paddingRight={5} paddingBottom={5}>
+        <Box flex="1" paddingX="5%" paddingBottom="2%">
           <Typography variant="body2" paragraph>
         But the story doesn't end there. As time unfolded, Amaury and Yasmine not only created a magical world of cupcakes but also built a family. 
         They celebrated their love with a union that brought four wonderful children into their lives. 
@@ -67,11 +74,11 @@ const AboutUsPage = () => {
         where the past meets the present in a delightful dance of flavors and stories.
           </Typography>
         </Box>
-        <Box paddingLeft={5} paddingRight={15} paddingBottom={3}>
+        <Box flex="1" paddingX="5%" paddingBottom="2%">
         <img
           src="https://media.istockphoto.com/id/1257383362/photo/delicatessen-bakery-store-with-variety-of-cupcakes.jpg?s=612x612&w=0&k=20&c=J8qVvGHA6_zTL_ezrppnz5w3nTg2rjcnqcqMJay-EdI="
           alt="A selection of our delicious cupcakes"
-          style={{ height: 250, marginRight: 20 }} /* TODO Make this image resizable */
+          style={{ width: '100%', height: 'auto' }} /* TODO Make this image resizable */
         />
       </Box>
       </Box>
@@ -101,7 +108,7 @@ const AboutUsPage = () => {
         <Divider /> 
         <ListItem alignItems="flex-start">
         <ListItemAvatar>
-            <Avatar alt="Yasmine Guichon" src="https://media.istockphoto.com/id/1313399157/fr/photo/verticale-de-femme-%C3%A2g%C3%A9e-a%C3%AEn%C3%A9e-heureuse-asiatique-restant-dans-la-cuisine-%C3%A0-la-maison-se.jpg?s=612x612&w=0&k=20&c=vKuuLJmPcD8ZyNhVJOsryLtpe7gYkgIydXdkV44WRls=" style={{ width: 200, height: 200 }} /* TODO Make this image resizable TODO change this image */ /> 
+            <Avatar alt="Yasmine Guichon" src="https://media.istockphoto.com/id/1275246551/fr/photo/femme-de-boulanger-retenant-un-plateau-vide-de-moule-de-cupcake.jpg?s=612x612&w=0&k=20&c=g7dDXx8pXz5VYyPjX9SwTsYMIoC6EiE1sdoqnguoW0Q=" style={{ width: 200, height: 200 }} /* TODO Make this image resizable TODO change this image */ /> 
           </ListItemAvatar>
           <ListItemText style={{ paddingLeft: '50px', paddingRight: '50px' }}
             primary="Yasmine Guichon" //TODO Add some colors here to each name

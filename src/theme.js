@@ -30,6 +30,7 @@ export const theme = createTheme({
     button: {
       main: '#000000',
     },
+    hoverShade: '#F5F5F5', // Add your desired shade her
   },
   typography: {
     fontFamily: 'GFS Neohellenic, sans-serif', //TODO Change font
@@ -44,15 +45,19 @@ export const theme = createTheme({
       fontWeight: 500,
       color: '#020711',
       textAlign: 'center',
+      '&hover': {
+        transform: 'scale(1.1)',
+        transition: 'filter 0.3sec',
+    }
     },
     h3: {
-        fontSize: '1.3rem',
+        fontSize: '1.4rem',
         fontWeight: 400,
         color: '#FFFFFF',
         textAlign: 'center',
       },
     h4: {
-        fontSize: '1.4rem',
+        fontSize: '1.7rem',
         fontWeight: 500,
         color: '#020711', //'#55AAAA',
         textAlign: 'center',
@@ -64,31 +69,31 @@ export const theme = createTheme({
         textAlign: 'center',
       },
     body1: {
-      fontSize: '2rem',
+      fontSize: '2.4rem',
       lineHeight: 1.5,
       color: '#333333',
       textAlign: 'justify',
     },
     body2: {
-        fontSize: '1.2rem',
+        fontSize: '1.6rem',
         lineHeight: 1.5,
         color: '#333333',
         textAlign: 'justify',
       },
     body3: {
-        fontSize: '1.2rem',
+        fontSize: '1.4rem',
         lineHeight: 1.5,
         color: '#333333',
         textAlign: 'justify',
       },
     subtitle1: {
-        fontSize: '1rem',
+        fontSize: '1.2rem',
         lineHeight: 1.5,
         color: '#FFFFFF',
         textAlign: 'center',
       },
     subtitle2: {
-        fontSize: '.8rem',
+        fontSize: '1rem',
         lineHeight: 1.5,
         color: '#FFFFFF',
         textAlign: 'center',
@@ -102,19 +107,22 @@ export const theme = createTheme({
             backgroundColor: '#F5F5F5',
             borderRadius: 55,
             color: '#020711',
+            fontSize: '1.2rem',
             '&:hover': {
               backgroundColor: 'rgba(2, 7, 17, 1)', // Darker shade on hover
               color: '#F5F5F5',
+              transition: 'filter 0.3s',
             },
           },
           outlined: {
             textTransform: 'none', // Prevent uppercase in button text
-            fontSize: '1.1rem',
+            fontSize: '1.2rem',
             borderRadius: 55,
             color: '#020711',
             '&:hover': {
               backgroundColor: 'rgba(2, 7, 17, 1)', // black on hover
               color: '#F5F5F5',
+              transition: 'filter 0.3s',
             },
           },
         },
@@ -122,10 +130,10 @@ export const theme = createTheme({
       MuiLink: {
         styleOverrides: {
           root: {
-            color: '#123456', // Default link color
+            color: '#020711', // Default link color
             textDecoration: 'none',
             '&:hover': {
-              color: '#388E3C', // Darker shade on hover
+              backgroundColor: 'rgba(2, 7, 17, 1)' // Darker shade on hover
             },
           },
         },
