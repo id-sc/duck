@@ -1,4 +1,4 @@
-## WEBSITE FILES ACCESSIBLE ON GITHUB
+# WEBSITE FILES ACCESSIBLE ON GITHUB
 
 Find all the files at https://github.com/id-sc/duck/tree/main
 
