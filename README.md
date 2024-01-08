@@ -6,6 +6,18 @@ Find all the files at https://github.com/id-sc/duck/tree/main
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+Run the following command in the terminal:
+
+### `npm install @mui/material @emotion/react @emotion/styled`
+
+## Launch the website
+
+In the project directory, you can run:
+
+### `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:
