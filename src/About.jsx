@@ -118,7 +118,7 @@ const AboutUsPage = () => {
         <Divider /> 
         <ListItem alignItems="flex-start"  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2%', flexDirection: isSmallScreen ? 'column' : 'row' }}>
         <ListItemAvatar>
-            <Avatar alt="Françoise Guichon" src="https://media.istockphoto.com/id/1275246551/fr/photo/femme-de-boulanger-retenant-un-plateau-vide-de-moule-de-cupcake.jpg?s=612x612&w=0&k=20&c=g7dDXx8pXz5VYyPjX9SwTsYMIoC6EiE1sdoqnguoW0Q=" style={{ width: 200, height: 200 }} /* TODO Make this image resizable TODO change this image */ /> 
+            <Avatar alt="Françoise Guichon" aria-label="Françoise Guichon" src="https://media.istockphoto.com/id/1275246551/fr/photo/femme-de-boulanger-retenant-un-plateau-vide-de-moule-de-cupcake.jpg?s=612x612&w=0&k=20&c=g7dDXx8pXz5VYyPjX9SwTsYMIoC6EiE1sdoqnguoW0Q=" style={{ width: 200, height: 200 }} /* TODO Make this image resizable TODO change this image */ /> 
           </ListItemAvatar>
           <ListItemText style={{ paddingLeft: '50px', paddingRight: '50px' }}
             primary="Françoise Guichon" //TODO Add some colors here to each name

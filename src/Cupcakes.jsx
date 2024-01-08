@@ -1,6 +1,6 @@
 // pages/Cupcakes.js
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Box, Card, CardContent, CardMedia, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Container, Typography, Grid, Alert, Box, Card, CardContent, CardMedia, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const cupcakesData = [
   {
@@ -74,6 +74,7 @@ const cupcakesData = [
 const Cupcakes = () => {
   const [filter, setFilter] = useState('all'); // Initial filter value
   const [sort, setSort] = useState('title'); // Initial sort value
+  const [notification, setNotification] = useState('');
 
   // Filter cupcakes based on the selected filter
   const filteredCupcakes = cupcakesData.filter(cupcake => filter === 'all' || cupcake.description.toLowerCase().includes(filter.toLowerCase()));
@@ -83,10 +84,12 @@ const Cupcakes = () => {
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
+    setNotification('Filter changed to ' + event.target.value);
   };
 
   const handleSortChange = (event) => {
     setSort(event.target.value);
+    setNotification('Sorting changed to ' + event.target.value);
   };
 
   return (
@@ -102,7 +105,7 @@ const Cupcakes = () => {
       so make sure to visit us frequently for a taste of our upcoming cupcakes! Utilize the filter and sorting options to discover the perfect treat for you.
       </Typography>
       </Box>
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
         <Box>
         <FormControl style={{ minWidth: 120, minHeight: 100 }}>
           <InputLabel id="filter-label">
@@ -112,7 +115,8 @@ const Cupcakes = () => {
             labelId="filter-label"
             id="filter"
             value={filter} 
-            onChange={handleFilterChange}
+            onChange={handleFilterChange} 
+            arial-label="Filter the cupcakes"
           >
             <MenuItem value="all"> {/* TODO Was working fine but now when i put all it doesn't work anymore */}
             <Typography variant="body2">All</Typography>
@@ -160,6 +164,7 @@ const Cupcakes = () => {
             id="sort"
             value={sort}
             onChange={handleSortChange}
+            arial-label="Sort the cupcakes"
           >
             <MenuItem value="title">
             <Typography variant="body2">Alphabetical</Typography>
@@ -171,6 +176,16 @@ const Cupcakes = () => {
             {/* Add more sort options as needed */}
           </Select>
         </FormControl>
+        </Box>
+        <Box marginLeft='10%'>
+            {/* ARIA live region for notifications */}
+            <div role="status" aria-live="polite">
+          {notification && (
+            <Alert variant="outlined" severity="info" style={{ fontSize: '1.3rem' }}>
+              {notification}
+            </Alert>
+          )}
+        </div>
         </Box>
       </div>
       <Grid container spacing={3}>

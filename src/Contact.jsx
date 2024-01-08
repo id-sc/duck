@@ -70,14 +70,14 @@ const Contact = () => {
           <Grid item xs={12}>
             <TextField
               fullWidth
+              name="name"
               label="Your Name"
               variant="outlined"
               required
-              InputLabelProps={{ 'aria-required': true, style: { fontSize: '1.2rem' } }}
+              InputLabelProps={{ 'aria-required': 'Enter your name', style: { fontSize: '1.2rem' } }}
               InputProps={{ style: { fontSize: '1.5rem' } }}  
               error={nameError}
               helperText={nameError && <Typography fontSize='1.1rem' color='red'> Please enter a name </Typography>}
-              name="name"
               aria-describedby={nameError ? 'name-error' : undefined}
             />
           </Grid>
@@ -87,7 +87,7 @@ const Contact = () => {
               label="Your Email"
               variant="outlined"
               required
-              InputLabelProps={{ 'aria-required': true, style: { fontSize: '1.2rem' } }}
+              InputLabelProps={{ 'aria-required': 'Enter your email address', style: { fontSize: '1.2rem' } }}
               InputProps={{ style: { fontSize: '1.5rem' } }}  
               type="email"
               error={emailError}
@@ -104,7 +104,7 @@ const Contact = () => {
               multiline
               rows={4}
               required
-              InputLabelProps={{ 'aria-required': true, style: { fontSize: '1.2rem' } }}
+              InputLabelProps={{ 'aria-required': 'Enter your message', style: { fontSize: '1.2rem' } }}
               InputProps={{ style: { fontSize: '1.5rem' } }}  
               error={messageError}
               helperText={messageError && <Typography fontSize='1.1rem' color='red'> Please enter a message </Typography>}

@@ -190,7 +190,7 @@ const HomePage = () => {
                 {mainFeaturedPost.description}
               </Typography>
               <Box>
-                <Button aria-label="Go to Cupcakes page" variant="contained" size="large" aria-label="View Cupcakes" href="/cupcakes">
+                <Button aria-label="Go to Cupcakes page" variant="contained" size="large" href="/cupcakes">
                   Explore Cupcakes
                 </Button>
               </Box>
