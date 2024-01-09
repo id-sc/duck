@@ -1,14 +1,10 @@
-# WEBSITE FILES ACCESSIBLE ON GITHUB
+# HOW TO RUN THE WEBSITE
 
-Find all the files at https://github.com/id-sc/duck/tree/main
-
-## Installation
+Install all the files from https://github.com/id-sc/duck/tree/main
 
 Run the following command in the terminal:
 
 ### `npm install @mui/material @emotion/react @emotion/styled`
-
-## Launch the website
 
 In the project directory, you can run:
 
